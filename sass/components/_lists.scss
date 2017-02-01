@@ -1,0 +1,37 @@
+/*--------------------
+LISTS
+--------------------*/
+
+$list__padding-left: 10px !default;
+$list-item__margin-bottom: 10px !default;
+
+ul, .list {
+    list-style-type: none;
+    @include em('padding-left', $list__padding-left);
+
+    li, .list__item {
+        @include em('margin-bottom', $list-item__margin-bottom);
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.list {
+    &--bullet {
+        list-style-type: disc;
+        @include em('padding-left', $list__padding-left+15px);
+    }
+
+    &--number {
+        counter-reset: items;
+
+        .list__item, li {
+            &:before {
+                counter-increment: items 1;
+                content: counter(items, decimal) ". ";
+            }
+        }
+    }
+}

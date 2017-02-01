@@ -1,0 +1,76 @@
+/**
+ * Translation
+ */
+.lang-fr [data-lang=en] { display: none; }
+.lang-en [data-lang=fr] { display: none; }
+
+/*--------------------
+COMMON
+--------------------*/
+
+* {
+    box-sizing: border-box;
+    text-shadow: none;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 100%;
+}
+
+body {
+    font-size: 1.2rem;
+    line-height: 1.4rem;
+    font-family: $font__family--default;
+    background-color: $color__bg;
+}
+
+img {
+    max-width: 100%;
+}
+
+/*--------------------
+ICONIC
+--------------------*/
+
+p {
+    &.note {
+        font-size: $font__size--small;
+        color: $gray;
+    }
+}
+
+.iconic-custom {
+    .iconic-bar-chart-bar-1  {
+        fill: $green;
+        stroke: $green;
+    }
+
+    .iconic-bar-chart-bar-2  {
+        fill: $blue;
+        stroke: $blue;
+    }
+
+    .iconic-bar-chart-bar-3  {
+        fill: $purple;
+        stroke: $purple;
+    }
+
+    .iconic-bar-chart-bar-4  {
+        fill: $red;
+        stroke: $red;
+    }
+
+    .iconic-bar-chart-bar-5  {
+        fill: $orange;
+        stroke: $orange;
+    }
+
+    .iconic-bar-chart-axes {
+        stroke: $gray;
+    }
+}

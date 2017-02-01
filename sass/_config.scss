@@ -1,0 +1,43 @@
+/*--------------------
+CONFIG
+--------------------*/
+
+/* Grid */
+$grid__padding: 30px;
+
+/* Colors */
+$color__bg: $white;
+$color__primary: #1ca0ca;
+$color__primary--light: #07b9ff;
+$color__primary--dark: #00243E;
+$color__secondary: #f79552;
+$color__secondary--light: hsla(160, 81, 50, 1);
+$color__secondary--dark: hsla(160, 71, 40, 1);
+$color__info: $teal;
+$color__alert: $red;
+$color__warning: $orange;
+$color__success: $green;
+$color__fail: $red;
+$color__cancel: $gray;
+
+$font__color: #212121;
+$font__color--title: #212121;
+$font__color--link: $color__primary;
+$font__color--link-hover: $color__primary--light;
+
+/* Fonts */
+$font__family--ultra-light : 'HelveticaNeue-UltraLight';
+$font__family--light : 'HelveticaNeue-Light';
+$font__family--thin : 'HelveticaNeue-Thin';
+$font__family--default: 'Verdana', sans-serif;
+$font__family--title: 'Verdana', sans-serif;
+
+/* Tabs / Accordion */
+$tab__background-color: $color__primary--light;
+$tab__background-color--selected: $white;
+$tab__label-color: $white;
+$tab__label-color--selected: $black;
+
+/* Lists */
+$list__padding-left: 10px;
+$list-item__margin-bottom: 10px;

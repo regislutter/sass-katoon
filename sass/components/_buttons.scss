@@ -1,0 +1,92 @@
+/*--------------------
+BUTTONS
+--------------------*/
+
+$button__padding: 8px 20px !default;
+$button__margin: 10px !default;
+$button__radius: 5px !default;
+$button__color: $white !default;
+$button__background-default: $blue !default;
+
+button, .btn {
+    display: inline-block;
+    cursor: pointer;
+    @include rem('margin-right', $button__margin);
+    @include rem('margin-bottom', $button__margin);
+    @include em('padding', $button__padding);
+
+    @include font-rem($font__size--default);
+
+    color: $button__color;
+    background-color: $button__background-default;
+    border: 1px solid darken($button__background-default, 10%);
+
+    vertical-align: top;
+
+    &.btn {
+        &--round {
+            border-radius: $button__radius;
+        }
+
+        /* Sizes */
+        &--small {
+            @include font-rem($font__size--small);
+        }
+        &--medium {
+            @include font-rem($font__size--medium);
+        }
+        &--big {
+            @include font-rem($font__size--big);
+        }
+
+        /* Colors */
+        &--primary {
+            background-color: $color__primary;
+            border-color: darken($color__primary, 15%);
+        }
+        &--secondary {
+            background-color: $color__secondary;
+            border-color: darken($color__secondary, 15%);
+        }
+        &--info {
+            background-color: $color__info;
+            border-color: darken($color__info, 15%);
+        }
+        &--alert {
+            background-color: $color__alert;
+            border-color: darken($color__alert, 15%);
+        }
+        &--warning {
+            background-color: $color__warning;
+            border-color: darken($color__warning, 15%);
+        }
+        &--success {
+            background-color: $color__success;
+            border-color: darken($color__success, 15%);
+        }
+        &--fail {
+            background-color: $color__fail;
+            border-color: darken($color__fail, 15%);
+        }
+        &--cancel {
+            background-color: $color__cancel;
+            border-color: darken($color__cancel, 15%);
+        }
+    }
+}
+
+.btn-group {
+    .btn--round {
+        border-radius: 0;
+
+        &:first-child {
+            border-top-left-radius: $button__radius;
+            border-bottom-left-radius: $button__radius;
+        }
+
+        &:last-child {
+            border-top-right-radius: $button__radius;
+            border-bottom-right-radius: $button__radius;
+        }
+    }
+}

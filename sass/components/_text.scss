@@ -1,0 +1,117 @@
+/*--------------------
+TEXTS
+--------------------*/
+
+h1, h2, h3, h4, h5, h6 {
+    color: $font__color--title;
+    margin: 1.2em 0 0.6em;
+
+    &:first-child {
+        margin-top: 0;
+    }
+
+    + p {
+        margin-top: 1.2em;
+    }
+}
+
+h1 {
+    @include font-em($font__size--h1);
+}
+h2 {
+    @include font-em($font__size--h2);
+}
+h3 {
+    @include font-em($font__size--h3);
+}
+h4 {
+    @include font-em($font__size--h4);
+}
+h5 {
+    @include font-em($font__size--h5);
+}
+h6 {
+    @include font-em($font__size--h6);
+}
+
+p {
+    margin: 0;
+
+    + p {
+        margin-top: 1.2em;
+    }
+}
+
+a {
+    color: $font__color--link;
+
+    &:hover {
+        color: $font__color--link-hover;
+    }
+}
+
+blockquote {
+    &:before {
+        content: '“';
+    }
+    &:after {
+        content: '”';
+    }
+}
+
+sup, sub {
+    line-height: 0;
+}
+
+/* Colors */
+.color--primary {
+    color: $color__primary;
+}
+.color--black {
+    color: $black;
+}
+
+/* Weights */
+.weight {
+    &--normal {
+        font-weight: normal;
+    }
+
+    &--bold {
+        font-weight: bold;
+    }
+}
+
+/* Sizes */
+.size {
+    &--medium {
+        @include font-em($font__size--medium);
+    }
+
+    &--big {
+        @include font-em($font__size--big);
+    }
+
+    &--h4 {
+        @include font-em($font__size--h4);
+    }
+
+    &--mega {
+        @include font-em($font__size--mega);
+    }
+
+    &--giga {
+        @include font-em($font__size--giga);
+    }
+}
+
+/* Transform */
+.capitalize {
+    text-transform: capitalize;
+}
+.uppercase {
+    text-transform: uppercase;
+}
+.lowercase {
+    text-transform: lowercase;
+}

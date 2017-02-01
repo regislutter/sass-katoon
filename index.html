@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="stylesheet" media="all" href="/css/style.css" type="text/css"/>
+    <link rel="stylesheet" media="all" href="/css/highlight/railscasts.css" type="text/css"/>
+
+    <script src="iconic/js/iconic.min.js"></script>
+    <script src="js/highlight.pack.js"></script>
+
+    <title>Demo - SASS Framework</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Texts</h1>
+        <div class="row">
+            <div class="col-xs-12">
+                <h1>Example heading</h1>
+                <h2>Example heading</h2>
+                <h3>Example heading</h3>
+                <h4>Example heading</h4>
+                <h5>Example heading</h5>
+                <h6>Example heading</h6>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit<sup>3</sup>. Proin facilisis magna eu<sub>2</sub> metus pharetra ultricies in ut ipsum. Suspendisse pretium, lorem in cursus ultrices, est erat efficitur elit, nec accumsan leo nisi id velit. Nam quis nisl augue. Proin diam ligula, congue non volutpat id, eleifend nec nisl. Vestibulum efficitur, neque vel facilisis convallis, quam mi ornare mi, at molestie odio augue sit amet nunc. Sed venenatis placerat nisl, in venenatis augue fermentum a. Sed interdum semper tortor sed congue. Ut sagittis ipsum ut leo tempus, ultrices malesuada turpis pretium.</p>
+                <p>Ut ac lorem et <a href="#" title="demo link">libero convallis semper</a>. Curabitur ullamcorper semper magna, et imperdiet ex congue a. Curabitur feugiat justo venenatis, ullamcorper urna eget, lacinia libero. Aliquam efficitur leo id porttitor volutpat. Vestibulum vestibulum lectus libero, nec posuere massa facilisis nec. Etiam pharetra aliquet libero, a gravida neque. Vestibulum lacinia mi quis lorem congue dapibus. Aenean sit amet metus libero. Nam ut finibus lorem. Duis non consequat ipsum. Duis varius ipsum lectus, vitae feugiat elit euismod non. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla faucibus ac purus ac mattis.</p>
+                <blockquote>Ut porta eros non diam blandit sodales.</blockquote>
+            </div>
+        </div>
+        <h1>Buttons</h1>
+        <h2>Styles</h2>
+        <div class="row">
+            <div class="col-xs-12">
+                <button>Button element</button>
+                <div class="btn">Button default</div>
+                <div class="btn btn--round">Button round</div>
+                <div class="btn btn--round btn--primary">Button round primary</div>
+                <div class="btn btn--round btn--secondary">Button round secondary</div>
+                <div class="btn btn--info">Button info</div>
+                <div class="btn btn--alert">Button alert</div>
+                <div class="btn btn--warning">Button warning</div>
+                <div class="btn btn--success">Button success</div>
+                <div class="btn btn--fail">Button fail</div>
+                <div class="btn btn--cancel">Button cancel</div>
+
+                <p>// TODO Group buttons</p>
+                <p>// TODO Hover effects</p>
+            </div>
+        </div>
+        <h2>Sizes</h2>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="btn btn--small">Button small</div>
+                <div class="btn">Button default</div>
+                <div class="btn btn--medium">Button medium</div>
+                <div class="btn btn--big">Button big</div>
+            </div>
+        </div>
+        <h1>Lists</h1>
+        <div class="row">
+            <div class="col-xs-6">
+                <p>Default</p>
+                <ul class="list">
+                    <li>Curabitur</li>
+                    <li>Donec</li>
+                    <li>Quisque</li>
+                    <li>Nullam</li>
+                    <li>Suspendisse</li>
+                </ul>
+                <p>Bullet</p>
+                <ul class="list list--bullet">
+                    <li>Curabitur</li>
+                    <li>Donec</li>
+                    <li>Quisque</li>
+                    <li>Nullam</li>
+                    <li>Suspendisse</li>
+                </ul>
+            </div>
+            <div class="col-xs-6">
+                <p>Number</p>
+                <ul class="list list--number">
+                    <li>Curabitur</li>
+                    <li>Donec</li>
+                    <li>Quisque</li>
+                    <li>Nullam</li>
+                    <li>Suspendisse</li>
+                </ul>
+            </div>
+        </div>
+        <h1>Tabs & Accordion</h1>
+        <div class="row">
+            <div class="col-xs-12">
+                <h2>Accordion</h2>
+                <div class="accordion">
+                    <input type="radio" name="accordion" id="accone" checked="checked">
+                    <label for="accone">Tab One</label>
+                    <div class="tab">
+                        <p>Content tab 1</p>
+                    </div>
+
+                    <input type="radio" name="accordion" id="acctwo">
+                    <label for="acctwo">Tab Two</label>
+                    <div class="tab">
+                        <p>Content tab 2</p>
+                    </div>
+
+                    <input type="radio" name="accordion" id="accthree">
+                    <label for="accthree">Tab Three</label>
+                    <div class="tab">
+                        <p>Content tab 3</p>
+                    </div>
+                </div>
+
+                <h2>Tabs</h2>
+                <div class="tabs">
+                    <input type="radio" name="tabs" id="tabone" checked="checked">
+                    <label for="tabone">Tab One</label>
+                    <div class="tab">
+                        <p>Content tab 1</p>
+                    </div>
+
+                    <input type="radio" name="tabs" id="tabtwo">
+                    <label for="tabtwo">Tab Two</label>
+                    <div class="tab">
+                        <p>Content tab 2</p>
+                    </div>
+
+                    <input type="radio" name="tabs" id="tabthree">
+                    <label for="tabthree">Tab Three</label>
+                    <div class="tab">
+                        <p>Content tab 3</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h1>Forms</h1>
+        <div class="row">
+            <div class="col-xs-6">
+                <input type="text" placeholder="Insert here" />
+                <input type="text" placeholder="Insert here" value="Content" />
+                <input type="number" />
+                <label for="test1">
+                    Insert your text: <input id="test1" type="text" placeholder="Insert here" />
+                </label>
+                <input type="text" placeholder="Insert here" disabled="disabled" />
+                <fieldset>
+                    <label for="test2">Insert your text:</label>
+                    <input id="test2" type="text" />
+                </fieldset>
+                <div class="input-group">
+                    <span class="input-group__addon">$</span>
+                    <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)">
+                    <span class="input-group__addon">.00</span>
+                </div>
+                <textarea>Content</textarea>
+                <select>
+                    <option value="1">Option 1</option>
+                    <option value="2">Option 2</option>
+                    <option value="3">Option 3</option>
+                    <option value="4">Option 4</option>
+                </select>
+            </div>
+            <div class="col-xs-6">
+                <p>Radio</p>
+                <fieldset class="input-group">
+                    <input id="radio1" name="test3" type="radio" value="1" />
+                    <label for="radio1">Yes</label>
+                    <input id="radio2" name="test3" type="radio" value="2" />
+                    <label for="radio2">Maybe</label>
+                    <input id="radio3" name="test3" type="radio" checked="checked" value="3" />
+                    <label for="radio3">No</label>
+                </fieldset>
+                <p>Checkbox</p>
+                <fieldset class="input-group">
+                    <input id="check1" name="test4" type="checkbox" checked="checked" value="1" />
+                    <label for="check1">Apple</label>
+                    <input id="check2" name="test4" type="checkbox" value="2" />
+                    <label for="check2">Ananas</label>
+                    <input id="check3" name="test4" type="checkbox" value="3" />
+                    <label for="check3">Aqua</label>
+                </fieldset>
+                <p>Switch</p>
+                <fieldset class="input-group">
+                    <input id="checkui1" class="input--switcher" name="test4" type="checkbox" value="1" />
+                    <label for="checkui1">
+                        <span class="input__switch"></span>
+                        Apple
+                    </label>
+                    <input id="checkui2" class="input--switcher" name="test4" type="checkbox" checked="checked" value="2" />
+                    <label for="checkui2">
+                        <span class="input__switch"></span>
+                        Ananas
+                    </label>
+                    <input id="checkui3" class="input--switcher" name="test4" type="checkbox" value="3" />
+                    <label for="checkui3">
+                        <span class="input__switch"></span>
+                        Aqua
+                    </label>
+                </fieldset>
+                <p>Disabled</p>
+                <fieldset class="input-group">
+                    <input id="checkdis1" name="test4" type="radio" disabled="disabled" value="2" />
+                    <label for="checkdis1">Ananas</label>
+                    <input id="checkdis2" name="test4" type="radio" disabled="disabled" checked="checked" value="2" />
+                    <label for="checkdis2">Ananas</label>
+                    <input id="checkdis3" name="test4" type="checkbox" disabled="disabled" value="3" />
+                    <label for="checkdis3">Aqua</label>
+                    <input id="checkdis4" name="test4" type="checkbox" disabled="disabled" checked="checked" value="3" />
+                    <label for="checkdis4">Aqua</label>
+                    <input id="checkdis5" class="input--switcher" disabled="disabled" type="checkbox" value="1" />
+                    <label for="checkdis5">
+                        <span class="input__switch"></span>
+                        Apple
+                    </label>
+                    <input id="checkdis6" class="input--switcher" disabled="disabled" checked="checked" type="checkbox" value="1" />
+                    <label for="checkdis6">
+                        <span class="input__switch"></span>
+                        Apple
+                    </label>
+                </fieldset>
+            </div>
+        </div>
+        <h1>Icons</h1>
+        <div class="row">
+            <div class="col-xs-12">
+                <p>The Sass Framework is using Iconic to generate icons. Iconic can render SVG in image tag, import SVG
+                    file with JavaScript or even be used as Webfont.</p>
+                <p>Read the documentation in <a title="Iconic library guides" href="https://useiconic.com/guides/">Iconic guides</a></p>
+                <p>See the complete <a title="Iconic icons list" href="https://useiconic.com/icons/">list of icons</a></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-6">
+                <h6>Simple icons SVG</h6>
+                <p>Display icons easily by putting the SVG or PNG file in a image tag.</p>
+                <img src="iconic/svg/smart/bar-chart.svg">
+                <pre><code class="html">    &lt;img src="iconic/svg/smart/bar-chart.svg"&gt;</code></pre>
+
+                <h6>Power-up icon</h6>
+                <p>Import the SVG file with the Iconic Javascript library</p>
+                <p class="note">Needs iconic.min.js to import SVG</p>
+                <img class="iconic" style="fill:blue;stroke:red;" data-src="iconic/svg/smart/envelope.svg">
+                <pre><code class="html">    &lt;img class="iconic" style="fill:blue;stroke:red;"
+        data-src="iconic/svg/smart/envelope.svg"&gt;</code></pre>
+
+                <h6>Responsive icons</h6>
+                <p class="note">Needs iconic.min.js to import SVG</p>
+                <img class="iconic iconic-sm"
+                     data-src="iconic/svg/smart/sun.svg">
+                <img class="iconic iconic-md"
+                     data-src="iconic/svg/smart/sun.svg">
+                <img class="iconic iconic-lg"
+                     data-src="iconic/svg/smart/sun.svg">
+                <pre><code class="html">    &lt;img class="iconic iconic-sm"
+        data-src="iconic/svg/smart/sun.svg"&gt;
+    &lt;img class="iconic iconic-md"
+        data-src="iconic/svg/smart/sun.svg"&gt;
+    &lt;img class="iconic iconic-lg"
+        data-src="iconic/svg/smart/sun.svg"&gt;</code></pre>
+            </div>
+
+            <div class="col-xs-6">
+                <h6>Style and animate with CSS</h6>
+                <p class="note">Needs iconic.min.js to import SVG</p>
+                <img class="iconic iconic-custom"
+                     data-src="iconic/svg/smart/bar-chart.svg">
+                 <pre><code class="html">   &lt;img class="iconic iconic-custom"
+        data-src="iconic/svg/smart/bar-chart.svg"&gt;</code></pre>
+                <pre><code class="css">
+    .iconic-custom {
+        .iconic-bar-chart-bar-1  {
+            fill: $green;
+            stroke: $green;
+        }
+
+        .iconic-bar-chart-bar-2  {
+            fill: $blue;
+            stroke: $blue;
+        }
+
+        .iconic-bar-chart-bar-3  {
+            fill: $purple;
+            stroke: $purple;
+        }
+
+        .iconic-bar-chart-bar-4  {
+            fill: $red;
+            stroke: $red;
+        }
+
+        .iconic-bar-chart-bar-5  {
+            fill: $orange;
+            stroke: $orange;
+        }
+
+        .iconic-bar-chart-axes {
+            stroke: $gray;
+        }
+    }
+                </code></pre>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-6">
+                <h6>Icons with font</h6>
+                <p>You can use Iconic as a font. This gives access to functionalities like adding text next to the icon (ideal for buttons),
+                    or having text as a fallback to the icon.</p>
+                <p class="note">Needs iconic.min.js to import SVG<br/>
+                Needs to import "iconic/iconic-glyphs" in app.scss</p>
+                <span class="iconic" data-glyph="heart" title="heart" aria-hidden="true"></span><br/>
+                <span class="iconic" data-glyph="thumb-up" title="like" aria-hidden="true"> Like</span><br/>
+                <span class="iconic iconic-text-replace" data-glyph="thumb-up" title="like" aria-hidden="true"> Like (fallback)</span>
+                <pre><code class="html">    &lt;span class="iconic"
+        data-glyph="heart"
+        title="heart"
+        aria-hidden="true"&gt;&lt;/span&gt;<br/>
+    &lt;span class="iconic"
+        data-glyph="thumb-up"
+        title="like"
+        aria-hidden="true"&gt; Like&lt;/span&gt;<br/>
+    &lt;span class="iconic iconic-text-replace"
+        data-glyph="thumb-up"
+        title="like"
+        aria-hidden="true"&gt; Like (fallback)&lt;/span&gt;</code></pre>
+            </div>
+            <div class="col-xs-6">
+                <h6>Attributes</h6>
+                <p>Some icons accept attributes as parameters to add information in the icon itself, like a file format.</p>
+                <p class="note">Needs iconic.min.js to import SVG</p>
+                <img class="iconic" data-src="iconic/svg/smart/file.svg" data-file-extension="CCP4">
+                <pre><code class="html">    &lt;img class="iconic"
+        data-src="iconic/svg/smart/file.svg"
+        data-file-extension="CCP4"&gt;</code></pre>
+            </div>
+        </div>
+    </div>
+
+    <script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>

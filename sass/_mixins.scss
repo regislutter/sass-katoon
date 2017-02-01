@@ -1,0 +1,375 @@
+/* FONT SIZE */
+
+// Baseline, measured in pixels
+// The value should be the same as the font-size value for the html element
+// If the html element's font-size is set to 62.5% (of the browser's default font-size of 16px),
+// then the variable below would be 10px.
+$baseline-px: $font__size--default;
+
+// Rem fallback for < IE8
+@function calc-rem($size, $context: $baseline-px) {
+    @return ($size / $context) * 1rem;
+}
+@function calc-em($size, $context: $baseline-px) {
+    @return ($size / $context) * 1em;
+}
+
+@mixin font-rem($px-values) {
+    font-size: $px-values;
+    line-height: $px-values+4px;
+    font-size: calc-rem($px-values);
+    line-height: (($px-values+4px)/$px-values);
+}
+
+@mixin font-em($px-values) {
+    font-size: $px-values;
+    line-height: $px-values+4px;
+    font-size: calc-em($px-values);
+    line-height: (($px-values+4px)/$px-values);
+}
+// Usage
+/*
+p {
+  @include font-size(14px)
+}
+*/
+
+@mixin text($fontSize, $lineHeight:false, $marginBottom:false, $fontFamily:false, $fontWeight:400) {
+    @include font-em($fontSize);
+    font-weight: $fontWeight;
+    @if $fontFamily {
+        font-family: $fontFamily;
+    }
+    @if $lineHeight {
+        line-height: $lineHeight;
+    }
+    @if $marginBottom {
+        margin-bottom: calc-em($marginBottom, $fontSize);
+    }
+}
+
+@mixin rem($property, $px-values) {
+    // Convert the baseline into rems
+    $baseline-rem: $baseline-px / 1rem;
+    // Print the first line in pixel values
+    #{$property}: $px-values;
+    // If there is only one (numeric) value, return the property/value line for it.
+    @if type-of($px-values) == "number" {
+        #{$property}: $px-values / $baseline-rem; }
+    @else {
+        // Create an empty list that we can dump values into
+        $rem-values: unquote("");
+        @each $value in $px-values {
+            // If the value is zero, return 0
+            @if $value == 0 {
+                $rem-values: append($rem-values, $value); }
+            @else {
+                $rem-values: append($rem-values, $value / $baseline-rem); } }
+        // Return the property and its list of converted values
+        #{$property}: $rem-values; } }
+// Usage
+/*
+p {
+  @include rem('padding', 14px);
+}
+*/
+
+@mixin em($property, $px-values) {
+    // Convert the baseline into rems
+    $baseline-em: $baseline-px / 1em;
+    // Print the first line in pixel values
+    #{$property}: $px-values;
+    // If there is only one (numeric) value, return the property/value line for it.
+    @if type-of($px-values) == "number" {
+        #{$property}: $px-values / $baseline-em; }
+    @else {
+        // Create an empty list that we can dump values into
+        $em-values: unquote("");
+        @each $value in $px-values {
+            // If the value is zero, return 0
+            @if $value == 0 {
+                $em-values: append($em-values, $value); }
+            @else {
+                $em-values: append($em-values, $value / $baseline-em); } }
+        // Return the property and its list of converted values
+        #{$property}: $em-values; } }
+// Usage
+/*
+p {
+  @include em('padding', 14px);
+}
+*/
+
+/* BREAKPOINTS */
+
+@mixin bp-large {
+    @media only screen and (min-width: $bp--large) {
+        @content;
+    }
+}
+@mixin bp-desktop {
+    @media only screen and (min-width: $bp--desktop) {
+        @content;
+    }
+}
+@mixin bp-desktop-only {
+    @media only screen and (min-width: $bp--desktop) and (max-width: $bp--large - 1px) {
+        @content;
+    }
+}
+@mixin bp-tablet {
+    @media only screen and (min-width: $bp--tablet) {
+        @content;
+    }
+}
+@mixin bp-tablet-only {
+    @media only screen and (min-width: $bp--tablet) and (max-width: $bp-desktop - 1px) {
+        @content;
+    }
+}
+@mixin bp-mobile-only {
+    @media only screen and (min-width: $bp--mobile) and (max-width: $bp--tablet - 1px) {
+        @content;
+    }
+}
+// Usage
+/*
+.sidebar {
+  width: 60%;
+  float: left;
+  margin: 0 2% 0 0;
+  @include bp-small {
+    width: 100%;
+    float: none;
+    margin: 0;
+  }
+}
+*/
+
+/* SVG BACKGROUND IMAGES WITH PNG AND FALLBACK */
+
+$image-path: '../images' !default;
+$retina-suffix: '@2x';
+
+@mixin background-image($name, $ext:'png', $size: cover, $svg:false){
+    @if($svg == false){
+        background-image: url(#{$image-path}/#{$name}.#{$ext});
+
+        @media only screen and (-moz-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
+            background-image: url(#{$image-path}/#{$name}#{$retina-suffix}.#{$ext});
+        }
+    } @else {
+        background-image: url(#{$image-path}/#{$name}.svg);
+        .no-svg &{
+            background-image: url(#{$image-path}/#{$name}.#{$ext});
+
+            @media only screen and (-moz-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
+                background-image: url(#{$image-path}/#{$name}#{$retina-suffix}.#{$ext});
+            }
+        }
+    }
+    background-repeat: no-repeat;
+    background-size: $size;
+}
+
+@mixin background-image-svg($name, $fallback: 'png', $size: cover) {
+    @include background-image($name, $fallback, $size, true);
+}
+
+// Usage
+/*
+body {
+  @include background-image('pattern');
+}
+*/
+
+/* ANIMATIONS AND KEYFRAMES */
+
+@mixin keyframes($animation-name) {
+    @-webkit-keyframes #{$animation-name} {
+        @content;
+    }
+    @-moz-keyframes #{$animation-name} {
+        @content;
+    }
+    @-ms-keyframes #{$animation-name} {
+        @content;
+    }
+    @-o-keyframes #{$animation-name} {
+        @content;
+    }
+    @keyframes #{$animation-name} {
+        @content;
+    }
+}
+
+@mixin animation($str...) {
+    -webkit-animation: #{$str};
+    -moz-animation: #{$str};
+    -ms-animation: #{$str};
+    -o-animation: #{$str};
+    animation: #{$str};
+}
+// Usage
+/*
+@include keyframes(slide-down) {
+  0% { opacity: 1; }
+  90% { opacity: 0; }
+}
+
+.element {
+  width: 100px;
+  height: 100px;
+  background: black;
+  @include animation('slide-down 5s 3');
+}
+*/
+
+/* TRANSITIONS */
+
+@mixin transition($args...) {
+    -webkit-transition: $args;
+    -moz-transition: $args;
+    -ms-transition: $args;
+    -o-transition: $args;
+    transition: $args;
+}
+// Usage
+/*
+a {
+  color: gray;
+  @include transition(color .3s ease);
+  &:hover {
+    color: black;
+  }
+}
+*/
+
+/* TRANSFORMS */
+
+@mixin transform($args...) {
+    -webkit-transform: $args;
+    -moz-transform: $args;
+    -ms-transform: $args;
+    -o-transform: $args;
+    transform: $args;
+}
+// Usage
+/*
+a {
+  color: gray;
+  @include transform(translate3d(0px, 0px, 0px) !important);
+  &:hover {
+    color: black;
+  }
+}
+*/
+
+/* CROSS BROWSER OPACITY */
+
+@mixin opacity($opacity) {
+    opacity: $opacity;
+    $opacity-ie: $opacity * 100;
+    filter: alpha(opacity=$opacity-ie); //IE8
+}
+// Usage
+/*
+.faded-text {
+  @include opacity(0.8);
+}
+*/
+
+/*--------------------
+DISPLAY
+--------------------*/
+
+/**
+ * Resets all properties to default to reduce interferences with foreign styles.
+ *
+ * @mixin
+ * @section Display
+ * @example
+ *  @include reset();
+ */
+@mixin reset() {
+    all: initial;
+    display: block;
+    box-sizing: border-box;
+    font-family: $font__family--default;
+    font-size: $font__size--default;
+    margin: 0;
+    padding: 0;
+}
+
+/*--------------------
+DISPLAY
+--------------------*/
+
+/* CLEARFIX >IE6 */
+%clearfix {
+    *zoom: 1;
+    &:before, &:after {
+        content: " ";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
+// Usage
+/*
+.container-with-floated-children {
+  @extend %clearfix;
+}
+*/
+
+/**
+ * Append a clearing pseudo element to avoid overflow of floating children.
+ *
+ * @mixin
+ * @section Clearing
+ * @example
+ *  @include clearAfter();
+ */
+@mixin clearAfter() {
+    &::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+/**
+ * Prepend a clearing pseudo element to avoid overflow of floating children.
+ *
+ * @mixin
+ * @section Clearing
+ * @example
+ *  @include clearBefore();
+ */
+@mixin clearBefore() {
+    &::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+/**
+ * A bit more agressive than clearAfter. Appends and prepends a 1px height clearing
+ * element. Could be used to prevent margin overflow from relative positioned elements
+ * in a floating environment.
+ *
+ * @mixin
+ * @section Clearing
+ * @example
+ *  @include clearHard();
+ */
+@mixin clearHard() {
+    &::after, &::before {
+        content: "";
+        display: block;
+        height: 1px;
+        clear: both;
+    }
+}

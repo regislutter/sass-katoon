@@ -1,0 +1,105 @@
+/*--------------------
+BREAKPOINTS
+--------------------*/
+
+$bp--mobile: 320px;
+$bp--tablet: 768px;
+$bp--desktop: 1224px;
+$bp--large: 1824px;
+
+/*--------------------
+COLORS
+--------------------*/
+
+// Palette from clrs.cc
+$navy: #001f3f;
+$blue: #0074D9;
+$aqua: #7FDBFF;
+$teal: #39CCCC;
+$olive: #3D9970;
+$green: #2ECC40;
+$lime: #01FF70;
+$yellow: #FFDC00;
+$orange: #FF851B;
+$red: #FF4136;
+$maroon: #85144B;
+$fuchsia: #F012BE;
+$purple: #B10DC9;
+$black: #111;
+$gray: #AAA;
+$silver: #DDD;
+$whitesmoke: #EFEFEF;
+$white: #FEFEFE;
+
+// Colors
+$color__bg: $white !default;//#252830;
+$color__primary: #1ca0ca !default;
+$color__primary--light: #07b9ff !default;
+$color__primary--dark: #00243E !default;
+$color__secondary: #f79552 !default;
+$color__secondary--light: hsla(160, 81, 50, 1) !default;
+$color__secondary--dark: hsla(160, 71, 40, 1) !default;
+$color__info: $teal !default;
+$color__alert: $red !default;
+$color__warning: $orange !default;
+$color__success: $green !default;
+$color__fail: $red !default;
+$color__cancel: $gray !default;
+
+/*--------------------
+FONTS COLOR
+--------------------*/
+
+$font__color: #212121 !default;
+$font__color--title: $white !default;
+$font__color--link: $white !default;
+$font__color--link-hover: $color__primary--light !default;
+
+/*--------------------
+FONTS FAMILY
+--------------------*/
+
+$font__family--ultra-light : 'HelveticaNeue-UltraLight' !default;
+$font__family--light : 'HelveticaNeue-Light' !default;
+$font__family--thin : 'HelveticaNeue-Thin' !default;
+$font__family--default: 'Verdana', sans-serif !default;
+$font__family--title: 'Verdana', sans-serif !default;
+
+/*--------------------
+FONT SIZE
+--------------------*/
+
+// Standard size :        11 12 14 18 20 24 28 32 36 48 64 72
+// Standard line height : 14 15 18 22 24 28 32 36 40 52 68 76
+
+// Font sizes
+$font__size--nano:    10px;
+$font__size--micro:   11px;
+$font__size--small:   12px;
+$font__size--default: 14px;
+$font__size--medium:  16px;
+$font__size--big:     18px;
+$font__size--h6:      20px;
+$font__size--h5:      24px;
+$font__size--h4:      28px;
+$font__size--h3:      32px;
+$font__size--h2:      36px;
+$font__size--h1:      48px;
+$font__size--mega:    64px;
+$font__size--giga:    72px;
+
+// Line height
+$font__line--nano:    12px;
+$font__line--micro:   14px;
+$font__line--small:   15px;
+$font__line--default: 18px;
+$font__line--medium:  20px;
+$font__line--big:     22px;
+$font__line--h6:      24px;
+$font__line--h5:      28px;
+$font__line--h4:      32px;
+$font__line--h3:      36px;
+$font__line--h2:      40px;
+$font__line--h1:      52px;
+$font__line--mega:    68px;
+$font__line--giga:    76px;

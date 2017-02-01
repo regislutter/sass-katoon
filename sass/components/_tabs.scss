@@ -1,0 +1,173 @@
+/*--------------------
+TABS
+--------------------*/
+
+$animate-tabs: true;
+$tab__background-color: $color__primary--light !default;
+$tab__background-color--selected: $white !default;
+$tab__label-color: $white !default;
+$tab__label-color--selected: $black !default;
+$tab__padding: 15px;
+
+/* Tabs are displayed as accordions on mobile */
+.tabs, .accordion {
+    display: flex;
+    flex-wrap: wrap; // make sure it wraps
+
+    &--right {
+        justify-content: flex-end;
+    }
+
+    label {
+        display: block;
+        width: 100%;
+        @include rem('padding', 15px 25px);
+        @include rem('margin-top', 15px);
+        font-weight: bold;
+        color: $tab__label-color;
+        background-color: $tab__background-color;
+        border-bottom: 5px solid $tab__background-color;
+        transition: background-color ease 0.2s;
+        cursor: pointer;
+        order: initial; // Put the labels first
+
+        &:before { // Prevent aspect from forms radio
+            content: none !important;
+        }
+
+        + .tab {
+            flex-grow: 1;
+            width: 100%;
+
+            color: $tab__label-color--selected;
+            background-color: $tab__background-color--selected;
+            order: initial; // Put the tabs last
+
+            @if ($animate-tabs) {
+                max-height: 0;
+                padding: 0;
+                opacity: 0;
+                @include animation('hide-tab .8s forwards'); // Animate the tab
+            }
+            @else {
+                display: none;
+                @include rem('padding', $tab__padding);
+            }
+        }
+    }
+
+    input[type="radio"] {
+        position: absolute;
+        opacity: 0;
+
+        &:checked {
+            + label {
+                color: $tab__label-color--selected;
+                background-color: $tab__background-color--selected;
+                + .tab {
+                    @if ($animate-tabs) {
+                        @include animation('show-tab .8s forwards'); // Animate the tab
+                    }
+                    @else {
+                        display: block;
+                    }
+                }
+            }
+
+            @if ($animate-tabs) { // Fix issue on iOS 8 - DO NOT REMOVE
+                ~ .tab {
+                    max-height: 0;
+                    padding: 0;
+                    -webkit-opacity: 0;
+                    opacity: 0;
+                }
+            }
+        }
+    }
+}
+
+/* Create tabs view on tablet and higher */
+@media (min-width: $bp--tablet) {
+    .tabs {
+        label {
+            width: auto;
+            @include em('margin-right', 3px);
+            margin-top: 0;
+            order: 1; // Put the labels first
+
+            + .tab {
+                order: 99; // Put the tabs last
+            }
+        }
+    }
+}
+
+@include keyframes('hide-tab') {
+    0% {
+        max-height: 768px;
+        @include rem('padding', $tab__padding);
+        opacity: 1;
+    }
+    48% {
+        max-height: 768px;
+        @include rem('padding', $tab__padding);
+        opacity: 0;
+    }
+    49% {
+        max-height: 0;
+        padding: 0;
+        opacity: 0;
+    }
+    100% {
+        max-height: 0;
+        padding: 0;
+        opacity: 0;
+    }
+}
+
+@include keyframes('show-tab') {
+    0% {
+        max-height: 0;
+        padding: 0;
+        opacity: 0;
+    }
+    50% {
+        max-height: 0;
+        padding: 0;
+        opacity: 0;
+    }
+    51% {
+        max-height: 768px;
+        @include rem('padding', $tab__padding);
+        opacity: 0;
+    }
+    100% {
+        max-height: 768px;
+        @include rem('padding', $tab__padding);
+        opacity: 1;
+    }
+}
+
+//HTML Code
+//<div class="tabs">
+//    <input type="radio" name="tabs" id="tabone" checked="checked">
+//    <label for="tabone">Tab One</label>
+//    <div class="tab">
+//        <h1>Tab One Content</h1>
+//        <p>Content</p>
+//    </div>
+//
+//    <input type="radio" name="tabs" id="tabtwo">
+//    <label for="tabtwo">Tab Two</label>
+//    <div class="tab">
+//        <h1>Tab Two Content</h1>
+//        <p>Content</p>
+//    </div>
+//
+//    <input type="radio" name="tabs" id="tabthree">
+//    <label for="tabthree">Tab Three</label>
+//    <div class="tab">
+//        <h1>Tab Three Content</h1>
+//        <p>Content</p>
+//    </div>
+//</div>
