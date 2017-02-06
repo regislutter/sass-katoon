@@ -28,15 +28,40 @@ $grid__padding: 30px !default;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     max-width: 100%;
-    //margin-right: -0.5rem;
-    //margin-left: -0.5rem;
-}
+    align-items: stretch;
 
-.row.reverse {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: reverse;
-    -ms-flex-direction: row-reverse;
-    flex-direction: row-reverse;
+    > div[class^='col-'], div[class*=' col-'] {
+        &.no-padding {
+            padding: 0;
+        }
+
+        &.no-padding-top {
+            padding-top: 0;
+        }
+
+        &.no-padding-right {
+            padding-right: 0;
+        }
+
+        &.no-padding-bottom {
+            padding-bottom: 0;
+        }
+
+        &.no-padding-left {
+            padding-left: 0;
+        }
+
+        &.valign {
+            align-self: center;
+        }
+    }
+
+    &.reverse {
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+        flex-direction: row-reverse;
+    }
 }
 
 .col.reverse {
@@ -44,6 +69,10 @@ $grid__padding: 30px !default;
     -webkit-box-direction: reverse;
     -ms-flex-direction: column-reverse;
     flex-direction: column-reverse;
+}
+
+div[class^='col-'], div[class*=' col-'] {
+    position: relative;
 }
 
 .col-xs,
@@ -275,6 +304,53 @@ $grid__padding: 30px !default;
     -webkit-box-ordinal-group: 2;
     -ms-flex-order: 1;
     order: 1;
+}
+
+.no-padding-xs {
+    > div[class^='col-'], > div[class*=' col-'] {
+        padding: 0;
+    }
+}
+
+.no-padding-side-xs {
+    > div[class^='col-'], > div[class*=' col-'] {
+        &:first-child {
+            padding-left: 0;
+        }
+        &:last-child {
+            padding-right: 0;
+        }
+    }
+}
+
+.no-padding-top-xs {
+    > div[class^='col-'], > div[class*=' col-'] {
+        padding-top: 0;
+    }
+}
+
+.no-padding-bottom-xs {
+    > div[class^='col-'], > div[class*=' col-'] {
+        padding-bottom: 0;
+    }
+}
+
+.first-row {
+    > div[class^='col-'], > div[class*=' col-'] {
+        @include rem('padding-top', $grid__padding);
+    }
+}
+
+.last-row {
+    > div[class^='col-'], > div[class*=' col-'] {
+        @include rem('padding-bottom', $grid__padding);
+    }
+}
+
+@media only screen and (max-width: 48em) {
+    .hide-xs {
+        display: none;
+    }
 }
 
 @media only screen and (min-width: 48em) {
@@ -511,6 +587,41 @@ $grid__padding: 30px !default;
         -webkit-box-ordinal-group: 2;
         -ms-flex-order: 1;
         order: 1;
+    }
+
+    .no-padding-sm {
+        > div[class^='col-'], > div[class*=' col-'] {
+            padding: 0;
+        }
+    }
+
+    .no-padding-side-sm {
+        > div[class^='col-'], > div[class*=' col-'] {
+            &:first-child {
+                padding-left: 0;
+            }
+            &:last-child {
+                padding-right: 0;
+            }
+        }
+    }
+
+    .no-padding-top-sm {
+        > div[class^='col-'], > div[class*=' col-'] {
+            padding-top: 0;
+        }
+    }
+
+    .no-padding-bottom-sm {
+        > div[class^='col-'], > div[class*=' col-'] {
+            padding-bottom: 0;
+        }
+    }
+}
+
+@media only screen and (max-width: 64em) {
+    .hide-sm {
+        display: none;
     }
 }
 
@@ -749,6 +860,41 @@ $grid__padding: 30px !default;
         -ms-flex-order: 1;
         order: 1;
     }
+
+    .no-padding-md {
+        > div[class^='col-'], > div[class*=' col-'] {
+            padding: 0;
+        }
+    }
+
+    .no-padding-side-md {
+        > div[class^='col-'], > div[class*=' col-'] {
+            &:first-child {
+                padding-left: 0;
+            }
+            &:last-child {
+                padding-right: 0;
+            }
+        }
+    }
+
+    .no-padding-top-md {
+        > div[class^='col-'], > div[class*=' col-'] {
+            padding-top: 0;
+        }
+    }
+
+    .no-padding-bottom-md {
+        > div[class^='col-'], > div[class*=' col-'] {
+            padding-bottom: 0;
+        }
+    }
+}
+
+@media only screen and (max-width: 75em) {
+    .hide-md {
+        display: none;
+    }
 }
 
 @media only screen and (min-width: 75em) {
@@ -986,63 +1132,32 @@ $grid__padding: 30px !default;
         -ms-flex-order: 1;
         order: 1;
     }
-}
 
-/*--------------------
-Manage padding individually
---------------------*/
-
-div[class^='col-'], div[class*=' col-'] {
-    position: relative;
-}
-
-.row {
-    align-items: stretch;
-
-    > div[class^='col-'], div[class*=' col-'] {
-        &.no-padding {
-            padding: 0;
-        }
-
-        &.no-padding-right {
-            padding-right: 0;
-        }
-
-        &.no-padding-left {
-            padding-left: 0;
-        }
-
-        &.valign {
-            align-self: center;
-        }
-    }
-
-    &.first-row {
-        > div[class^='col-'], div[class*=' col-'] {
-            @include rem('padding-top', $grid__padding);
-        }
-    }
-
-    &.last-row {
-        > div[class^='col-'], div[class*=' col-'] {
-            @include rem('padding-bottom', $grid__padding);
-        }
-    }
-
-    &.no-padding {
-        > div[class^='col-'], div[class*=' col-'] {
+    .no-padding-lg {
+        > div[class^='col-'], > div[class*=' col-'] {
             padding: 0;
         }
     }
 
-    &.no-padding-top {
-        > div[class^='col-'], div[class*=' col-'] {
+    .no-padding-side-lg {
+        > div[class^='col-'], > div[class*=' col-'] {
+            &:first-child {
+                padding-left: 0;
+            }
+            &:last-child {
+                padding-right: 0;
+            }
+        }
+    }
+
+    .no-padding-top-lg {
+        > div[class^='col-'], > div[class*=' col-'] {
             padding-top: 0;
         }
     }
 
-    &.no-padding-bottom {
-        > div[class^='col-'], div[class*=' col-'] {
+    .no-padding-bottom-lg {
+        > div[class^='col-'], > div[class*=' col-'] {
             padding-bottom: 0;
         }
     }
