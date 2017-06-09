@@ -388,7 +388,12 @@ div[class^='col-'], div[class*=' col-'] {
         -webkit-box-flex: 0;
         -ms-flex: 0 0 auto;
         flex: 0 0 auto;
-        @include rem('padding', $grid__padding/2);
+
+        @include rem('padding', $grid__padding_vertical $grid__padding/2);
+
+        &.padding-small {
+            @include rem('padding', $grid__padding_vertical $grid__padding/2/2);
+        }
 
         &:first-child {
             @include rem('padding-left', $grid__padding);
@@ -660,7 +665,12 @@ div[class^='col-'], div[class*=' col-'] {
         -webkit-box-flex: 0;
         -ms-flex: 0 0 auto;
         flex: 0 0 auto;
-        @include rem('padding', $grid__padding/2);
+
+        @include rem('padding', $grid__padding_vertical $grid__padding/2);
+
+        &.padding-small {
+            @include rem('padding', $grid__padding_vertical $grid__padding/2/2);
+        }
 
         &:first-child {
             @include rem('padding-left', $grid__padding);
@@ -932,7 +942,12 @@ div[class^='col-'], div[class*=' col-'] {
         -webkit-box-flex: 0;
         -ms-flex: 0 0 auto;
         flex: 0 0 auto;
-        @include rem('padding', $grid__padding/2);
+
+        @include rem('padding', $grid__padding_vertical $grid__padding/2);
+
+        &.padding-small {
+            @include rem('padding', $grid__padding_vertical $grid__padding/2/2);
+        }
 
         &:first-child {
             @include rem('padding-left', $grid__padding);
