@@ -1,0 +1,39 @@
+/* Important */
+html:not([lang]), // Lang should be declared
+html[lang=""],
+meta[charset]:not([charset="UTF-8"]), // Charset is not set to UTF-8
+input:not([name]), // Unreferenced form elements
+select:not([name]),
+textarea:not([name]),
+form:not([name]):not([id]),
+button:empty, // Empty interactive elements
+a:empty
+{
+    border: 4px solid $red;
+}
+
+
+/* Warning */
+*[style], // Inline style on element
+a:not([href]) // No link or link empty
+a:[href="#"],
+a:[href=""],
+a[href*="javascript:void(0)"],
+img:not([alt]), // Not alt on image
+meta[charset="UTF-8"]:not(:first-child), // Meta charset is not first meta tag
+meta[name="viewport"][content*="user-scalable=no"], // Should not be restricting user
+meta[name="viewport"][content*="maximum-scale"],
+meta[name="viewport"][content*="minimum-scale"],
+input:not([id]), // Unlabelled form elements
+select:not([id]),
+textarea:not([id]),
+label:not([for])
+{
+    border: 4px solid $orange;
+}
+
+/* To verify */
+img[alt=""] // Alt is empty, but it can be intentional for decorative images
+{
+    border: 4px solid $yellow;
+}

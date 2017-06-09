@@ -1,7 +1,8 @@
 @import "iconic/iconic-glyphs"; // Iconic web font
 
 @import 'variables';
-@import "config";
+@import 'config';
+@import 'debug'; // Disable this in production
 @import 'mixins';
 @import 'grid';
 
